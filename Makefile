@@ -1,5 +1,5 @@
 CC = g++
-CFLAGS = -Wall -Wextra -O2
+CFLAGS = -I include -Wall -Wextra -O2
 
 TARGET = run
 
