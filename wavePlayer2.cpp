@@ -5,7 +5,7 @@ int wavePlayer2() {
   int monsters;
   int bullets = 40;
 
-  monsters = rand() % 40;
+  monsters = rand() % 40 + 1;
 
   for (int i = 0; i < monsters; i++) {
     bullets--;
