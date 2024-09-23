@@ -1,6 +1,10 @@
+#include <cstdlib>
 #include <iostream>
+#include <time.h>
 
 int wavePlayer1() {
+
+  srand(time(NULL));
   int coins = 0;
   int monsters;
   int bullets = 20;

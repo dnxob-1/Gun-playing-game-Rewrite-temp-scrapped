@@ -1,6 +1,8 @@
 #include <iostream>
 
 int wavePlayer2() {
+
+  srand(time(NULL));
   int coins = 0;
   int monsters;
   int bullets = 40;
@@ -17,7 +19,6 @@ int wavePlayer2() {
     }
   }
 
-  std::cout << "True runner";
   std::cout << "Monsters killed: " << monsters << "\n";
   std::cout << "Coins earned: " << coins << "\n";
   std::cout << "Bullets left: " << bullets << "\n";
