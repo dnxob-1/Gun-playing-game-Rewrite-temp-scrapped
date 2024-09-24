@@ -1,3 +1,4 @@
+#include <fstream>
 #include <iostream>
 
 int wavePlayer2() {
@@ -22,6 +23,8 @@ int wavePlayer2() {
   std::cout << "Monsters killed: " << monsters << "\n";
   std::cout << "Coins earned: " << coins << "\n";
   std::cout << "Bullets left: " << bullets << "\n";
+
+  std::ofstream testing("testing");
 
   return coins;
   return bullets;
