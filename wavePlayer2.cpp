@@ -54,7 +54,7 @@ int wavePlayer2() {
 
     /*if (line1 == typeid(int)) {
     }*/
-    cout << line1;
+    // cout << line1;
   }
 
   /*if (!value) {

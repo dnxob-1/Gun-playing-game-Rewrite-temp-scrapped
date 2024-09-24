@@ -37,25 +37,32 @@ int wavePlayer1() {
 
   ifstream readFromLog("logger.txt");
 
-  int value;
-
-  string line1;
-  string line2;
-  if (getline(readFromLog, line1)) {
+  string line1[2];
+  /*if (getline(readFromLog, line1)) {
     cout << line1;
-  }
+  }*/
 
   // fix
-  if (getline(readFromLog, line1)) {
+  /*if (getline(readFromLog, line1)) {
     cout << line2 << "\n";
     readFromLog >> value;
+  }*/
+
+  int value;
+
+  while (getline(readFromLog, line1)) {
+
+    for (auto i : line1) {
+    }
+
+    cout << line1 << endl;
   }
 
-  if (!value) {
+  /*if (!value) {
     std::cerr << "file err: failed to read int" << std::endl;
-  }
+  }*/
 
-  cout << "Something: " << value;
+  // cout << "Something: " << value;
 
   readFromLog.close();
 
