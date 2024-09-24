@@ -51,13 +51,13 @@ int wavePlayer1() {
   int value;
   /* you can make it so that ther is a point, instead of using one file to log*/
 
-  while (getline(readFromLog, line1)) {
+  /*while (getline(readFromLog, line1)) {
 
     for (auto i : line1) {
     }
 
     cout << line1 << endl;
-  }
+  }*/
 
   /*if (!value) {
     std::cerr << "file err: failed to read int" << std::endl;
