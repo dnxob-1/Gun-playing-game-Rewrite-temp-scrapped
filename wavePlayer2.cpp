@@ -1,5 +1,6 @@
 #include <fstream>
 #include <iostream>
+#include <string>
 using namespace std;
 
 int wavePlayer2() {
@@ -25,8 +26,6 @@ int wavePlayer2() {
   std::cout << "Coins earned: " << coins << "\n";
   std::cout << "Bullets left: " << bullets << "\n";
 
-  std::ofstream testing("testing");
-
   ofstream writeToLog("logger.txt");
 
   writeToLog << "Player has played at [0:1]" << "\n";
@@ -36,25 +35,33 @@ int wavePlayer2() {
 
   ifstream readFromLog("logger.txt");
 
-  int value;
+  // int value;
 
   string line1;
   string line2;
-  if (getline(readFromLog, line1)) {
+
+  /*if (getline(readFromLog, line1)) {
+    cout << line1;
+  }*/
+
+  // fix
+  /*if (getline(readFromLog, line1)) {
+    cout << line2 << "\n";
+    readFromLog >> value;
+  }*/
+
+  while (getline(readFromLog, line1)) {
+
+    /*if (line1 == typeid(int)) {
+    }*/
     cout << line1;
   }
 
-  // fix
-  if (getline(readFromLog, line1)) {
-    cout << line2 << "\n";
-    readFromLog >> value;
-  }
-
-  if (!value) {
+  /*if (!value) {
     std::cerr << "file err: failed to read int" << std::endl;
-  }
+  }*/
 
-  cout << "Something: " << value;
+  // cout << "Something: " << value;
 
   readFromLog.close();
 
