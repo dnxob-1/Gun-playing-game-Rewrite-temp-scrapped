@@ -28,14 +28,14 @@ int wavePlayer1() {
   cout << "Coins earned: " << coins << "\n";
   cout << "Bullets left: " << bullets << "\n";
 
-  ofstream writeToLog("logger.txt");
+  ofstream writeToLog("cache/logger.txt");
 
   writeToLog << "Player has played at [0:1]" << "\n";
   writeToLog << coins;
 
   writeToLog.close();
 
-  ifstream readFromLog("logger.txt");
+  ifstream readFromLog("cache/logger.txt");
 
   string line1[2];
   /*if (getline(readFromLog, line1)) {
@@ -49,6 +49,7 @@ int wavePlayer1() {
   }*/
 
   int value;
+  /* you can make it so that ther is a point, instead of using one file to log*/
 
   while (getline(readFromLog, line1)) {
 
