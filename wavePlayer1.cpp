@@ -72,6 +72,7 @@ int wavePlayer1() {
   cout << "Coins earned: " << coins << "\n";
   cout << "Bullets left: " << bullets << "\n";
 
+  logWriter3();
   logWriter4(coins);
 
   return coins;

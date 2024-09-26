@@ -4,7 +4,7 @@
 #include <string>
 using namespace std;
 
-void logWriter1() {
+string logWriter1() {
 
   ofstream writeToLog("data/logger.txt");
 
@@ -17,6 +17,8 @@ void logWriter1() {
   string line1;
 
   readFromLog.close();
+
+  return line1;
 }
 
 int logWriter2(int coins) {
@@ -36,8 +38,6 @@ int logWriter2(int coins) {
   getline(readFromLog2, line2);
 
   value = stoi(line2);
-
-  cout << value << "\n";
 
   if (!value) {
     std::cerr << "file err: failed to read int" << std::endl;
@@ -76,8 +76,10 @@ int wavePlayer2() {
   cout << "Coins earned: " << coins << "\n";
   cout << "Bullets left: " << bullets << "\n";
 
+  logWriter1();
   logWriter2(coins);
 
   return coins;
   return bullets;
+  return
 }
