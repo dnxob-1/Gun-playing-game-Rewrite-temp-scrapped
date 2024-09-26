@@ -4,7 +4,9 @@ CFLAGS = -I include -Wall -Wextra -O2
 $(shell mkdir -p build)
 
 TARGET = build/run
-dataDir = data/logger.txt
+dataDir = data
+log = $(dataDir)/logger.txt
+other = $(dataDir)/nums.txt
 
 SRCS = main.cpp givePlayers.cpp wavePlayer1.cpp wavePlayer2.cpp wave.cpp 
 OBJS = $(SRCS:.c=.o)
@@ -18,4 +20,4 @@ $(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(TARGET) $(dataDir)
+	rm -f $(TARGET) $(dataDir)/*.txt

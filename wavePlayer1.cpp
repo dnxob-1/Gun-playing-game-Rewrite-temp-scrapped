@@ -5,6 +5,50 @@
 #include <time.h>
 using namespace std;
 
+void logWriter3() {
+
+  ofstream writeToLog("data/logger.txt");
+
+  writeToLog << "Player has played at [0:1]" << "\n";
+
+  writeToLog.close();
+
+  ifstream readFromLog("data/logger.txt");
+
+  string line1;
+
+  readFromLog.close();
+}
+
+int logWriter4(int coins) {
+
+  int value;
+
+  ofstream writeToLog2("data/nums.txt");
+
+  writeToLog2 << coins;
+
+  writeToLog2.close();
+
+  ifstream readFromLog2("data/nums.txt");
+
+  string line2;
+
+  getline(readFromLog2, line2);
+
+  value = stoi(line2);
+
+  cout << value << "\n";
+
+  if (!value) {
+    std::cerr << "file err: failed to read int" << std::endl;
+  }
+
+  readFromLog2.close();
+
+  return coins;
+}
+
 int wavePlayer1() {
 
   srand(time(NULL));
@@ -28,44 +72,7 @@ int wavePlayer1() {
   cout << "Coins earned: " << coins << "\n";
   cout << "Bullets left: " << bullets << "\n";
 
-  ofstream writeToLog("data/logger.txt");
-
-  writeToLog << "Player has played at [0:1]" << "\n";
-  writeToLog << coins;
-
-  writeToLog.close();
-
-  ifstream readFromLog("data/logger.txt");
-
-  string line1[2];
-  /*if (getline(readFromLog, line1)) {
-    cout << line1;
-  }*/
-
-  // fix
-  /*if (getline(readFromLog, line1)) {
-    cout << line2 << "\n";
-    readFromLog >> value;
-  }*/
-
-  int value;
-  /* you can make it so that ther is a point, instead of using one file to log*/
-
-  /*while (getline(readFromLog, line1)) {
-
-    for (auto i : line1) {
-    }
-
-    cout << line1 << endl;
-  }*/
-
-  /*if (!value) {
-    std::cerr << "file err: failed to read int" << std::endl;
-  }*/
-
-  // cout << "Something: " << value;
-
-  readFromLog.close();
+  logWriter4(coins);
 
   return coins;
   return bullets;
