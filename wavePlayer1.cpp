@@ -28,14 +28,14 @@ int wavePlayer1() {
   cout << "Coins earned: " << coins << "\n";
   cout << "Bullets left: " << bullets << "\n";
 
-  ofstream writeToLog("cache/logger.txt");
+  ofstream writeToLog("data/logger.txt");
 
   writeToLog << "Player has played at [0:1]" << "\n";
   writeToLog << coins;
 
   writeToLog.close();
 
-  ifstream readFromLog("cache/logger.txt");
+  ifstream readFromLog("data/logger.txt");
 
   string line1[2];
   /*if (getline(readFromLog, line1)) {

@@ -26,14 +26,14 @@ int wavePlayer2() {
   std::cout << "Coins earned: " << coins << "\n";
   std::cout << "Bullets left: " << bullets << "\n";
 
-  ofstream writeToLog("logger.txt");
+  ofstream writeToLog("data/logger.txt");
 
   writeToLog << "Player has played at [0:1]" << "\n";
   writeToLog << coins;
 
   writeToLog.close();
 
-  ifstream readFromLog("logger.txt");
+  ifstream readFromLog("data/logger.txt");
 
   // int value;
 
