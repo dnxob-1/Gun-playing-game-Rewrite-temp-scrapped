@@ -38,7 +38,7 @@ int logWriter2(int coins) {
   value = stoi(line2);
 
   if (!value) {
-    std::cerr << "file err: failed to read int" << std::endl;
+    cerr << "file err: failed to read int" << std::endl;
   }
 
   readFromLog2.close();
@@ -73,13 +73,15 @@ int runWave() {
   return bullets;
 }
 
-string wavePlayer1(string line1) {
+string wavePlayer1(string line2) {
 
   srand(time(NULL));
 
+  line2 = "NULL";
+
   runWave();
 
-  logWriter1(line1);
+  logWriter1(line2);
 
-  return line1;
+  return line2;
 }

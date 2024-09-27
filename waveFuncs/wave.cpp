@@ -7,12 +7,13 @@ using namespace std;
 int wave(int players) {
 
   string line1;
+  string line2;
 
   int run;
 
   // make it to so that the player(s) can load their pre-built configure.
   if (players == 2) {
-    wavePlayer2(line1);
+    wavePlayer2(line2);
     run++;
     sendToLogging(line1, players, run);
   } else {

@@ -1,6 +1,9 @@
 #ifndef WAVEPLAYER2_H
 #define WAVEPLAYER2_H
 
-int wavePlayer2();
+#include <iostream>
+using namespace std;
+
+string wavePlayer2(string line2);
 
 #endif
