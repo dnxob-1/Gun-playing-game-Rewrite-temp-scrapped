@@ -5,7 +5,7 @@
 #include <time.h>
 using namespace std;
 
-void logWriter3() {
+string logWriter3(string line1) {
 
   ofstream writeToLog("data/logger.txt");
 
@@ -15,9 +15,9 @@ void logWriter3() {
 
   ifstream readFromLog("data/logger.txt");
 
-  string line1;
-
   readFromLog.close();
+
+  return line1;
 }
 
 int logWriter4(int coins) {
@@ -49,9 +49,7 @@ int logWriter4(int coins) {
   return coins;
 }
 
-int wavePlayer1() {
-
-  srand(time(NULL));
+int runWave() {
   int coins = 0;
   int monsters;
   int bullets = 20;
@@ -72,9 +70,19 @@ int wavePlayer1() {
   cout << "Coins earned: " << coins << "\n";
   cout << "Bullets left: " << bullets << "\n";
 
-  logWriter3();
   logWriter4(coins);
 
   return coins;
   return bullets;
+}
+
+string wavePlayer1(string line1) {
+
+  srand(time(NULL));
+
+  runWave();
+
+  logWriter3(line1);
+
+  return line1;
 }
