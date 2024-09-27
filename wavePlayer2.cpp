@@ -4,7 +4,7 @@
 #include <string>
 using namespace std;
 
-string logWriter1() {
+string logWriter1(string line1) {
 
   ofstream writeToLog("data/logger.txt");
 
@@ -13,8 +13,6 @@ string logWriter1() {
   writeToLog.close();
 
   ifstream readFromLog("data/logger.txt");
-
-  string line1;
 
   readFromLog.close();
 
@@ -48,27 +46,20 @@ int logWriter2(int coins) {
   return coins;
 }
 
-int wavePlayer2() {
-
-  srand(time(NULL));
+int runWave() {
   int coins = 0;
   int monsters;
-  int bullets = 40;
+  int bullets = 20;
 
-  monsters = rand() % 40 + 1;
+  monsters = rand() % 20 + 1;
 
   for (int i = 0; i < monsters; i++) {
     bullets--;
-    if (monsters <= 25) {
-      bullets += 2;
-    } else {
-      coins++;
-    }
     monsters--;
+    coins++;
     if (bullets == 0) {
-      cout << "0 bullets left.";
+      std::cout << "0 bullets left.";
       break;
-      exit(1);
     }
   }
 
@@ -76,10 +67,19 @@ int wavePlayer2() {
   cout << "Coins earned: " << coins << "\n";
   cout << "Bullets left: " << bullets << "\n";
 
-  logWriter1();
   logWriter2(coins);
 
   return coins;
   return bullets;
-  return
+}
+
+string wavePlayer1(string line1) {
+
+  srand(time(NULL));
+
+  runWave();
+
+  logWriter1(line1);
+
+  return line1;
 }
