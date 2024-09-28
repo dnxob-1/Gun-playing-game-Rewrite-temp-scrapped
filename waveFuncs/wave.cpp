@@ -8,7 +8,7 @@ int wave(int players) {
 
   string line1;
 
-  int run;
+  int run = 0;
 
   // make it to so that the player(s) can load their pre-built configure.
   if (players == 2) {
