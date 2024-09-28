@@ -38,8 +38,6 @@ int logWriter4(int coins) {
 
   value = stoi(line2);
 
-  cout << value << "\n";
-
   if (!value) {
     std::cerr << "file err: failed to read int" << std::endl;
   }
@@ -50,8 +48,8 @@ int logWriter4(int coins) {
 }
 
 int runWave() {
-  int coins = 1;
-  int monsters;
+  int coins = 0;
+  int monsters = 0;
   int bullets = 20;
 
   monsters = rand() % 20 + 1;

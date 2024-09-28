@@ -2,6 +2,7 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <time.h>
 using namespace std;
 
 string logWriter1(string line1) {
@@ -21,7 +22,7 @@ string logWriter1(string line1) {
 
 int logWriter2(int coins) {
 
-  int value;
+  int value = 0;
 
   ofstream writeToLog2("data/nums.txt");
 
@@ -38,7 +39,7 @@ int logWriter2(int coins) {
   value = stoi(line2);
 
   if (!value) {
-    cerr << "file err: failed to read int" << std::endl;
+    std::cerr << "file err: failed to read int" << std::endl;
   }
 
   readFromLog2.close();
@@ -47,11 +48,16 @@ int logWriter2(int coins) {
 }
 
 int runWave2() {
-  int coins = 0;
-  int monsters;
-  int bullets = 20;
 
-  monsters = rand() % 20 + 1;
+  srand(time(NULL));
+
+  int coins = 0;
+  int monsters = 0;
+  int bullets = 40;
+
+  monsters = rand() % 40 + 1;
+
+  cout << "Monsters rn: " << monsters;
 
   for (int i = 0; i < monsters; i++) {
     bullets--;
@@ -73,15 +79,11 @@ int runWave2() {
   return bullets;
 }
 
-string wavePlayer2(string line2) {
-
-  srand(time(NULL));
-
-  line2 = "NULL";
+string wavePlayer2(string line1) {
 
   runWave2();
 
-  logWriter1(line2);
+  logWriter1(line1);
 
-  return line2;
+  return line1;
 }
