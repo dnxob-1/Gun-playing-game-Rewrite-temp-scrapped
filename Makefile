@@ -8,7 +8,7 @@ dataDir = data
 log = $(dataDir)/logger.txt
 other = $(dataDir)/nums.txt
 
-SRCS = main.cpp givePlayers.cpp waveFuncs/wavePlayer1.cpp waveFuncs/wavePlayer2.cpp waveFuncs/wave.cpp findLog.cpp
+SRCS = main.cpp givePlayers.cpp waveFuncs/wavePlayer1.cpp waveFuncs/wavePlayer2.cpp waveFuncs/wave.cpp logRelated/findLog.cpp
 OBJS = $(SRCS:.c=.o)
 
 all: $(TARGET)
