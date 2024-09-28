@@ -1,5 +1,6 @@
-#include "givePlayers.h"
+#include "include/givePlayers.h"
 #include "wave.h"
+#include <iostream>
 using namespace std;
 
 int main() {
@@ -8,7 +9,7 @@ int main() {
 
   // write it so that it writes that the player has played before and then at
   // what stage has the player played.
-  givePlayers(players);
+  players = givePlayers(players);
 
   wave(players);
 

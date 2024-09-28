@@ -57,8 +57,6 @@ int runWave2() {
 
   monsters = rand() % 40 + 1;
 
-  cout << "Monsters rn: " << monsters;
-
   for (int i = 0; i < monsters; i++) {
     bullets--;
     monsters--;

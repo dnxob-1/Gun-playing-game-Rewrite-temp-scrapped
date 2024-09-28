@@ -14,11 +14,11 @@ int wave(int players) {
   if (players == 2) {
     wavePlayer2(line1);
     run++;
-    sendToLogging(line1, players, run);
+    // sendToLogging(line1, players, run);
   } else {
     wavePlayer1(line1);
     run++;
-    sendToLogging(line1, players, run);
+    // sendToLogging(line1, players, run);
   }
 
   return players;
