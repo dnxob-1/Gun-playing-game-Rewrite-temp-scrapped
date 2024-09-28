@@ -50,7 +50,7 @@ int logWriter4(int coins) {
 }
 
 int runWave() {
-  int coins = 0;
+  int coins = 1;
   int monsters;
   int bullets = 20;
 

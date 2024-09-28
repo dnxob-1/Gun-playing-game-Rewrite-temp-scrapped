@@ -46,7 +46,7 @@ int logWriter2(int coins) {
   return coins;
 }
 
-int runWave() {
+int runWave2() {
   int coins = 0;
   int monsters;
   int bullets = 20;
@@ -73,13 +73,13 @@ int runWave() {
   return bullets;
 }
 
-string wavePlayer1(string line2) {
+string wavePlayer2(string line2) {
 
   srand(time(NULL));
 
   line2 = "NULL";
 
-  runWave();
+  runWave2();
 
   logWriter1(line2);
 
