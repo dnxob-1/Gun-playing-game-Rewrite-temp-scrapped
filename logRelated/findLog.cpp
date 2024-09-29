@@ -1,13 +1,47 @@
 #include "wave.h"
 #include "wavePlayer1.h"
 #include "wavePlayer2.h"
+#include <cstdlib>
+#include <fstream>
 #include <iostream>
+#include <string>
 using namespace std;
 
-void sendToLogging(string line1, int players, int run) {
+int ask() {
+
+  char asker;
+
+  cout << "Do you wish to load to the previous position? (Y/n)" << '\n';
+
+  if (asker == 'Y' || asker == 'y') {
+    return 0;
+  } else if (asker == 'N' || asker == 'n') {
+    return 1;
+  } else {
+    cout << "Invalid" << '\n';
+    ask();
+    return 1;
+  }
+}
+
+string readFromLogFile() {
+
+  string line2;
+  ifstream reader("data/logger.txt");
+
+  getline(reader, line2);
+
+  reader.close();
+
+  return line2;
+}
+
+void sendToLogging(int players) {
 
   string c01;
-  c01 = line1;
+  string subc01 = readFromLogFile();
+  c01 = subc01;
+
   // unset vars, set later
 
   /*string c02;
@@ -17,9 +51,11 @@ void sendToLogging(string line1, int players, int run) {
   string c3;
   string c4;*/
 
-  if (c01 == line1 && run == 1 && players == 2) {
-    wavePlayer2(line1);
-  } else if (c01 == line1 && run == 1 && players == 1) {
-    wavePlayer1(line1);
+  int outsideReturner = ask();
+
+  if (c01 == subc01 && players == 2 && outsideReturner == 0) {
+    wavePlayer2(c01);
+  } else if (c01 == subc01 && players == 1 && outsideReturner == 0) {
+    wavePlayer1(c01);
   }
 }

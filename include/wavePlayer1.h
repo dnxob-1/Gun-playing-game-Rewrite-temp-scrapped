@@ -5,5 +5,6 @@
 using namespace std;
 
 string wavePlayer1(string line1);
+// string logWriter3(string line1);
 
 #endif

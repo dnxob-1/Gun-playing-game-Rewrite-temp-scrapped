@@ -13,36 +13,32 @@ string logWriter3(string line1) {
 
   writeToLog.close();
 
-  ifstream readFromLog("data/logger.txt");
-
-  readFromLog.close();
-
   return line1;
 }
 
-int logWriter4(int coins) {
+int numWriter4(int coins) {
 
   int value;
 
-  ofstream writeToLog2("data/nums.txt");
+  ofstream writeToNum2("data/nums.txt");
 
-  writeToLog2 << coins;
+  writeToNum2 << coins;
 
-  writeToLog2.close();
+  writeToNum2.close();
 
-  ifstream readFromLog2("data/nums.txt");
+  ifstream readFromNum2("data/nums.txt");
 
   string line2;
 
-  getline(readFromLog2, line2);
+  getline(readFromNum2, line2);
 
   value = stoi(line2);
 
   if (!value) {
-    std::cerr << "file err: failed to read int" << std::endl;
+    cerr << "file err: failed to read int" << endl;
   }
 
-  readFromLog2.close();
+  readFromNum2.close();
 
   return coins;
 }
@@ -68,7 +64,7 @@ int runWave() {
   cout << "Coins earned: " << coins << "\n";
   cout << "Bullets left: " << bullets << "\n";
 
-  logWriter4(coins);
+  numWriter4(coins);
 
   return coins;
   return bullets;
