@@ -36,7 +36,7 @@ string readFromLogFile() {
   return line2;
 }
 
-void sendToLogging(int players) {
+void sendToLogging(char playersVal) {
 
   string c01;
   string subc01 = readFromLogFile();
@@ -53,9 +53,9 @@ void sendToLogging(int players) {
 
   int outsideReturner = ask();
 
-  if (c01 == subc01 && players == 2 && outsideReturner == 0) {
+  if (c01 == subc01 && playersVal == '2' && outsideReturner == 0) {
     wavePlayer2(c01);
-  } else if (c01 == subc01 && players == 1 && outsideReturner == 0) {
+  } else if (c01 == subc01 && playersVal == '1' && outsideReturner == 0) {
     wavePlayer1(c01);
   }
 }
