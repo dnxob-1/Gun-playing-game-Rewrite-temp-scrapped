@@ -1,7 +1,9 @@
 #include "findLog.h"
 #include "givePlayers.h"
 #include "wave.h"
+#include <fstream>
 #include <iostream>
+#include <string>
 using namespace std;
 
 int main() {
@@ -13,7 +15,6 @@ int main() {
   players = givePlayers(players);
 
   // make line1 appear before this
-  // sendToLogging(line1, players);
 
   wave(players);
 

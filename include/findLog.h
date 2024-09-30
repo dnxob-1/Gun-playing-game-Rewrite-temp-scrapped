@@ -4,6 +4,6 @@
 #include <iostream>
 using namespace std;
 
-void sendToLogging(string line1, int players);
+void sendToLogging(int players);
 
 #endif
