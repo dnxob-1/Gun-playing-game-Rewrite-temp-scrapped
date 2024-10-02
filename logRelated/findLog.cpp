@@ -12,6 +12,7 @@ int ask() {
   char asker;
 
   cout << "Do you wish to load to the previous position? (Y/n)" << '\n';
+  cin >> asker;
 
   if (asker == 'Y' || asker == 'y') {
     return 0;
