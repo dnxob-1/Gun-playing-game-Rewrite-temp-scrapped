@@ -19,7 +19,11 @@ char readFromPlayerFile(char wildPlayer) {
 
   ifstream readDatFile("data/numPlayers.txt");
 
-  getline(readDatFile, wildPlayer);
+  string tempL;
+
+  getline(readDatFile, tempL);
+
+  wildPlayer = tempL[0];
 
   readDatFile.close();
 
