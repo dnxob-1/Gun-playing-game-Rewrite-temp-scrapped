@@ -11,7 +11,7 @@ int ask() {
 
   char asker;
 
-  cout << "Do you wish to load to the previous position? (Y/n)" << '\n';
+  cout << "Do you wish to load to the previous position? (Y/n): ";
   cin >> asker;
 
   if (asker == 'Y' || asker == 'y') {
@@ -37,26 +37,47 @@ string readFromLogFile() {
   return line2;
 }
 
-void sendToLogging(char playersVal) {
+char readFromPlayerFile(char wildPlayer) {
+
+  ifstream readDatFile("data/numPlayers.txt");
+
+  string tempL;
+
+  getline(readDatFile, tempL);
+
+  wildPlayer = tempL[0];
+
+  readDatFile.close();
+
+  return wildPlayer;
+}
+
+int sendToLogging() {
 
   string c01;
   string subc01 = readFromLogFile();
+  char wildPlayer;
+  int outsideReturner;
   c01 = subc01;
 
-  // unset vars, set later
+  wildPlayer = readFromPlayerFile(wildPlayer);
 
-  /*string c02;
-  string c03;
-  string c1;
-  string c2;
-  string c3;
-  string c4;*/
-
-  int outsideReturner = ask();
-
-  if (c01 == subc01 && playersVal == '2' && outsideReturner == 0) {
-    wavePlayer2(c01);
-  } else if (c01 == subc01 && playersVal == '1' && outsideReturner == 0) {
-    wavePlayer1(c01);
+  if (c01 == subc01 && wildPlayer == '2') {
+    outsideReturner = ask();
+    cout << outsideReturner;
+    if (outsideReturner == 0) {
+      wavePlayer2(c01);
+    } else if (outsideReturner == 1) {
+      exit(1);
+    }
+  } else if (c01 == subc01 && wildPlayer == '1') {
+    outsideReturner = ask();
+    if (outsideReturner == 0) {
+      wavePlayer1(c01);
+    } else if (outsideReturner == 1) {
+      exit(1);
+    }
   }
+
+  return 1;
 }

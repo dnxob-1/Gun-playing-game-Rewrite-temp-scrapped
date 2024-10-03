@@ -14,8 +14,6 @@ int main() {
   // what stage has the player played.
   players = givePlayers(players);
 
-  // make line1 appear before this
-
   wave(players);
 
   return 0;

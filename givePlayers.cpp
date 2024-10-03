@@ -15,30 +15,9 @@ int writePlayerToFile(int players) {
   return players;
 }
 
-char readFromPlayerFile(char wildPlayer) {
-
-  ifstream readDatFile("data/numPlayers.txt");
-
-  string tempL;
-
-  getline(readDatFile, tempL);
-
-  wildPlayer = tempL[0];
-
-  readDatFile.close();
-
-  return wildPlayer;
-}
-
 int givePlayers(int players) {
 
-  char wildPlayer;
-
-  cout << wildPlayer;
-
-  readFromPlayerFile(wildPlayer);
-
-  sendToLogging(wildPlayer);
+  sendToLogging();
 
   cout << "Number of players (1-2): ";
   cin >> players;
