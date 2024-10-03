@@ -11,6 +11,8 @@ int ask() {
 
   char asker;
 
+  cout << asker;
+
   cout << "Do you wish to load to the previous position? (Y/n): ";
   cin >> asker;
 
@@ -21,25 +23,35 @@ int ask() {
   } else {
     cout << "Invalid" << '\n';
     ask();
-    return 1;
   }
 }
 
-string readFromLogFile() {
+string readFromLogFile(char count) {
 
-  string line2;
   ifstream reader("data/logger.txt");
 
-  getline(reader, line2);
+  if (!reader && count == '1') {
+    cerr << "Error: logger.txt does not exist. Did you delete it?" << '\n';
+    exit(1);
+  }
+
+  string lineGrab;
+
+  getline(reader, lineGrab);
 
   reader.close();
 
-  return line2;
+  return lineGrab;
 }
 
-char readFromPlayerFile(char wildPlayer) {
+char readFromPlayerFile(char wildPlayer, char count) {
 
   ifstream readDatFile("data/numPlayers.txt");
+
+  if (!readDatFile && count == '1') {
+    cerr << "Error: numPlayers.txt does not exist. Did you delete it?" << '\n';
+    exit(1);
+  }
 
   string tempL;
 
@@ -52,32 +64,29 @@ char readFromPlayerFile(char wildPlayer) {
   return wildPlayer;
 }
 
-int sendToLogging() {
+int sendToLogging(char count) {
 
   string c01;
-  string subc01 = readFromLogFile();
-  char wildPlayer;
-  int outsideReturner;
+  string subc01 = readFromLogFile(count);
   c01 = subc01;
 
-  wildPlayer = readFromPlayerFile(wildPlayer);
+  char wildPlayer;
+  int outsideReturner;
+
+  wildPlayer = readFromPlayerFile(wildPlayer, count);
 
   if (c01 == subc01 && wildPlayer == '2') {
     outsideReturner = ask();
-    cout << outsideReturner;
-    if (outsideReturner == 0) {
-      wavePlayer2(c01);
-    } else if (outsideReturner == 1) {
+    if (outsideReturner == 1) {
+      cout << "Leaving..." << '\n';
       exit(1);
     }
   } else if (c01 == subc01 && wildPlayer == '1') {
     outsideReturner = ask();
-    if (outsideReturner == 0) {
-      wavePlayer1(c01);
-    } else if (outsideReturner == 1) {
+    if (outsideReturner == 1) {
+      cout << "Leaving..." << '\n';
       exit(1);
     }
   }
-
   return 1;
 }

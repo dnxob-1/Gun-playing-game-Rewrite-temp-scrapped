@@ -4,7 +4,6 @@
 #include <iostream>
 using namespace std;
 
-string wavePlayer1(string line1);
-// string logWriter3(string line1);
+string wavePlayer1(string line1, char count);
 
 #endif

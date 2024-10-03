@@ -4,6 +4,6 @@
 #include <iostream>
 using namespace std;
 
-void sendToLogging();
+int sendToLogging(char count);
 
 #endif

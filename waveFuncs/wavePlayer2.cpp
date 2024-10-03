@@ -20,7 +20,7 @@ string logWriter1(string line1) {
   return line1;
 }
 
-int logWriter2(int coins) {
+int logWriter2(int coins, char count) {
 
   int value = 0;
 
@@ -32,6 +32,11 @@ int logWriter2(int coins) {
 
   ifstream readFromLog2("data/nums.txt");
 
+  if (!readFromLog2 && count == '1') {
+    cerr << "Error: logger.txt does not exist. Did you delete it?" << '\n';
+    exit(1);
+  }
+
   string line2;
 
   getline(readFromLog2, line2);
@@ -39,7 +44,7 @@ int logWriter2(int coins) {
   value = stoi(line2);
 
   if (!value) {
-    std::cerr << "file err: failed to read int" << std::endl;
+    cerr << "file err: failed to read int" << endl;
   }
 
   readFromLog2.close();
@@ -47,7 +52,7 @@ int logWriter2(int coins) {
   return coins;
 }
 
-int runWave2() {
+int runWave2(char count) {
 
   srand(time(NULL));
 
@@ -62,7 +67,7 @@ int runWave2() {
     monsters--;
     coins++;
     if (bullets == 0) {
-      std::cout << "0 bullets left.";
+      cout << "0 bullets left.";
       break;
     }
   }
@@ -71,15 +76,15 @@ int runWave2() {
   cout << "Coins earned: " << coins << "\n";
   cout << "Bullets left: " << bullets << "\n";
 
-  logWriter2(coins);
+  logWriter2(coins, count);
 
   return coins;
   return bullets;
 }
 
-string wavePlayer2(string line1) {
+string wavePlayer2(string line1, char count) {
 
-  runWave2();
+  runWave2(count);
 
   logWriter1(line1);
 

@@ -4,21 +4,15 @@
 #include <iostream>
 using namespace std;
 
-int wave(int players) {
+int wave(int players, char count) {
 
-  string line1;
-
-  int run = 0;
+  string line;
 
   // make it to so that the player(s) can load their pre-built configure.
   if (players == 2) {
-    wavePlayer2(line1);
-    run++;
-    // sendToLogging(line1, players, run);
+    wavePlayer2(line, count);
   } else {
-    wavePlayer1(line1);
-    run++;
-    // sendToLogging(line1, players, run);
+    wavePlayer1(line, count);
   }
 
   return players;

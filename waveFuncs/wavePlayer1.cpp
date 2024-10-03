@@ -16,7 +16,7 @@ string logWriter3(string line1) {
   return line1;
 }
 
-int numWriter4(int coins) {
+int numWriter4(int coins, char count) {
 
   int value;
 
@@ -27,6 +27,11 @@ int numWriter4(int coins) {
   writeToNum2.close();
 
   ifstream readFromNum2("data/nums.txt");
+
+  if (!readFromNum2 && count == '1') {
+    cerr << "Error: logger.txt does not exist. Did you delete it?" << '\n';
+    exit(1);
+  }
 
   string line2;
 
@@ -40,10 +45,10 @@ int numWriter4(int coins) {
 
   readFromNum2.close();
 
-  return coins;
+  return value;
 }
 
-int runWave() {
+int runWave(char count) {
   int coins = 0;
   int monsters = 0;
   int bullets = 20;
@@ -64,17 +69,17 @@ int runWave() {
   cout << "Coins earned: " << coins << "\n";
   cout << "Bullets left: " << bullets << "\n";
 
-  numWriter4(coins);
+  numWriter4(coins, count);
 
   return coins;
   return bullets;
 }
 
-string wavePlayer1(string line1) {
+string wavePlayer1(string line1, char count) {
 
   srand(time(NULL));
 
-  runWave();
+  runWave(count);
 
   logWriter3(line1);
 

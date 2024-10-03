@@ -1,5 +1,7 @@
 #include "findLog.h"
 #include "main.h"
+#include <cmath>
+#include <cstdlib>
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -17,13 +19,12 @@ int writePlayerToFile(int players) {
 
 int givePlayers(int players) {
 
-  sendToLogging();
-
   cout << "Number of players (1-2): ";
   cin >> players;
 
   writePlayerToFile(players);
 
+  // make it so that it parses the string of players into int
   if (players == 1) {
     cout << "1 player selected\n";
   } else if (players == 2) {
