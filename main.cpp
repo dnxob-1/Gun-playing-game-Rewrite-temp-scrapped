@@ -1,3 +1,4 @@
+#include "MainClasses.h"
 #include "findLog.h"
 #include "givePlayers.h"
 #include "wave.h"
@@ -6,7 +7,7 @@
 #include <string>
 using namespace std;
 
-int writeToCounter(int countInt) {
+/*int writeToCounter(int countInt) {
 
   ofstream counterFile("data/counter.txt");
 
@@ -30,12 +31,12 @@ char readFromCounter(char countChar) {
   counterRead.close();
 
   return countChar;
-}
+}*/
 
 int main() {
 
   int players = 0;
-  char countChar;
+  /*char countChar;
   int countInt = 0;
 
   // write it so that it writes that the player has played before and then at
@@ -52,7 +53,17 @@ int main() {
     countInt = 1;
     writeToCounter(countInt);
   }
-  wave(players, countChar);
+  wave(players, countChar);*/
+
+  players = givePlayers(players);
+
+  MainPlayers playerM;
+
+  playerM.setPlayerCount();
+
+  playerM.increasePlayerAtkBasedOnCount();
+
+  playerM.increasePlayerHealthBasedOnCount();
 
   return 0;
 }
