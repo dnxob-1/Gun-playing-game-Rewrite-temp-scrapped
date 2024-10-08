@@ -32,7 +32,7 @@ int givePlayers(int players) {
   } else {
     cout << "Error:  selected more or less than the required amount of "
             "players. Please retry.\n";
-    main();
+    main(); // shouldnt be called again as this does the things in main twice
   }
 
   return players;

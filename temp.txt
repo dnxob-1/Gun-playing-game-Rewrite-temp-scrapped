@@ -1,1 +1,49 @@
-givePlayers.cpp waveFuncs/wavePlayer1.cpp waveFuncs/wavePlayer2.cpp waveFuncs/wave.cpp logRelated/findLog.cpp 
+FOR MAKEFILE givePlayers.cpp waveFuncs/wavePlayer1.cpp waveFuncs/wavePlayer2.cpp waveFuncs/wave.cpp logRelated/findLog.cpp 
+
+
+FOR MAIN cpp
+/*int writeToCounter(int countInt) {
+
+  ofstream counterFile("data/counter.txt");
+
+  counterFile << countInt;
+
+  counterFile.close();
+
+  return countInt;
+}
+
+char readFromCounter(char countChar) {
+
+  ifstream counterRead("data/counter.txt");
+
+  string tempR;
+
+  getline(counterRead, tempR);
+
+  countChar = tempR[0];
+
+  counterRead.close();
+
+  return countChar;
+}*/
+
+  /*char countChar;
+  int countInt = 0;
+
+  // write it so that it writes that the player has played before and then at
+  // what stage has the player played.
+
+  countChar = readFromCounter(countChar);
+
+  if (countChar != '0') {
+    sendToLogging(countChar);
+  }
+
+  if (true) {
+    players = givePlayers(players);
+    countInt = 1;
+    writeToCounter(countInt);
+  }
+  wave(players, countChar);*/
+
