@@ -8,6 +8,10 @@
 int MainPlayers::setPlayerCount() {
   std::ifstream readFromNumFile("data/numPlayers.txt");
 
+  if (!readFromNumFile) {
+    std::cerr << "File could not be read. Does it exist?";
+  }
+
   std::string tempP;
 
   std::getline(readFromNumFile, tempP);
@@ -61,7 +65,6 @@ int mainPlayers::hpCountDown(int enemeyAtk, int enemeyCount) {
     health -= enemeyAtk;
   }
 
-  std::cout << health;
   return health;
 }
 
