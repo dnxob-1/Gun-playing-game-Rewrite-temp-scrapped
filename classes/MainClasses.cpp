@@ -40,7 +40,7 @@ int MainPlayers::increasePlayerHealthBasedOnCount() {
   return health;
 }
 
-int MainPlayers::killPlayer() {
+/*int MainPlayers::killPlayer() {
 
   if (health == 0) {
     playerCount--;
@@ -164,4 +164,4 @@ void ghosts::increaseCoinCountByGKill(int waveNum) {
   for (int i = 0; i < ghostCount; i++) {
     mainPlayers::increaseCoinCountForPlayer();
   }
-}
+}*/

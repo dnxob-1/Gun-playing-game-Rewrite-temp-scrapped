@@ -7,7 +7,7 @@ $(shell mkdir -p data)
 TARGET = build/run
 dataDir = data
 
-SRCS = main.cpp givePlayers.cpp classes/MainClasses.cpp
+SRCS = main.cpp givePlayers.cpp classes/MainClasses.cpp waveFuncs/wave.cpp
 OBJS = $(SRCS:.c=.o)
 
 all: $(TARGET)

@@ -9,6 +9,8 @@
 int main() {
 
   int players = 0;
+  int waveNum = 0;
+
   players = givePlayers(players);
 
   MainPlayers playerMain;
@@ -18,6 +20,10 @@ int main() {
   playerMain.increasePlayerAtkBasedOnCount();
 
   playerMain.increasePlayerHealthBasedOnCount();
+
+  wave_init(waveNum);
+
+  std::cout << waveNum;
 
   return 0;
 }
