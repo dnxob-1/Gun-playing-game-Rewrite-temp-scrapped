@@ -21,9 +21,7 @@ int main() {
 
   playerMain.increasePlayerHealthBasedOnCount();
 
-  wave_init(waveNum);
-
-  std::cout << waveNum;
+  waveNum = wave_init(waveNum);
 
   return 0;
 }

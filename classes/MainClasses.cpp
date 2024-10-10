@@ -40,7 +40,7 @@ int MainPlayers::increasePlayerHealthBasedOnCount() {
   return health;
 }
 
-/*int MainPlayers::killPlayer() {
+int MainPlayers::killPlayer() {
 
   if (health == 0) {
     playerCount--;
@@ -49,7 +49,7 @@ int MainPlayers::increasePlayerHealthBasedOnCount() {
   return playerCount;
 }
 
-int mainPlayers::damage(int enemeyHealth, int enemeyCount) {
+int MainPlayers::damage(int enemeyHealth, int enemeyCount) {
   enemeyHealth -= attack;
 
   if (enemeyHealth == 0) {
@@ -60,15 +60,14 @@ int mainPlayers::damage(int enemeyHealth, int enemeyCount) {
   return enemeyHealth;
 }
 
-int mainPlayers::hpCountDown(int enemeyAtk, int enemeyCount) {
+int MainPlayers::hpCountDown(int enemeyAtk, int enemeyCount) {
   for (int i = 0; i < enemeyCount; i++) {
     health -= enemeyAtk;
   }
-
   return health;
 }
 
-int mainPlayers::increaseCoinCountForPlayer(waveNum) {
+int MainPlayers::increaseCoinCountForPlayer(int waveNum) {
   switch (waveNum) {
   case 1:
     coins++;
@@ -81,7 +80,7 @@ int mainPlayers::increaseCoinCountForPlayer(waveNum) {
   case 9:
     coins += 4;
   default:
-    conis++;
+    coins++;
     break;
   }
   return waveNum;
@@ -91,17 +90,17 @@ int mainPlayers::increaseCoinCountForPlayer(waveNum) {
 int brutus::findBruteHpBasedOnCount() { return health *= bruteCount; }
 int brutus::findBruteAtkBasedOnCount() { return attack *= bruteCount; }
 
-int brutus::getBruteCount(waveNum) {
+int brutus::getBruteCount(int waveNum) {
   if (waveNum == 1) {
     bruteCount = 10;
-    findBruteHpBasedOnCount();
-    findBruteAtkBasedOnCount();
+    brutus::findBruteHpBasedOnCount();
+    brutus::findBruteAtkBasedOnCount();
   }
 
   for (int i = 0; i < waveNum; i++) {
     bruteCount++;
-    findBruteHpBasedOnCount();
-    findBruteAtkBasedOnCount();
+    brutus::findBruteHpBasedOnCount();
+    brutus::findBruteAtkBasedOnCount();
   }
 
   return waveNum;
@@ -111,7 +110,7 @@ int brutus::getBruteCount(waveNum) {
 int zombies::findZombHpBasedOnCount() { return health *= zombCount; }
 int zombies::findZombAtkBasedOnCount() { return attack *= zombCount; }
 
-int zombies::getZombCount(waveNum) {
+int zombies::getZombCount(int waveNum) {
   if (waveNum == 1) {
     zombCount = 10;
     zombies::findZombHpBasedOnCount();
@@ -131,7 +130,7 @@ int zombies::getZombCount(waveNum) {
 int ghosts::findGhostHpBasedOnCount() { return health *= ghostCount; }
 int ghosts::findGhostAtkBasedOnCount() { return attack *= ghostCount; }
 
-int ghosts::getGhostCount(waveNum) {
+int ghosts::getGhostCount(int waveNum) {
   if (waveNum == 1) {
     ghostCount = 2;
     ghosts::findGhostHpBasedOnCount();
@@ -146,22 +145,23 @@ int ghosts::getGhostCount(waveNum) {
 
   return waveNum;
 }
-
+/*
 void brutus::increaseCoinCountByBKill(int waveNum) {
   for (int i = 0; i < bruteCount; i++) {
-    mainPlayers::increaseCoinCountForPlayer(); // take in the parameter of
-                                               // monstType
+    MainPlayers::increaseCoinCountForPlayer(waveNum); // take in the parameter
+                                                      // of monstType
   }
 }
 
 void zombies::increaseCoinCountByZKill(int waveNum) {
   for (int i = 0; i < ghostCount; i++) {
-    mainPlayers::increaseCoinCountForPlayer();
+    MainPlayers::increaseCoinCountForPlayer(waveNum);
   }
 }
 
 void ghosts::increaseCoinCountByGKill(int waveNum) {
   for (int i = 0; i < ghostCount; i++) {
-    mainPlayers::increaseCoinCountForPlayer();
+    MainPlayers::increaseCoinCountForPlayer(waveNum);
   }
-}*/
+}
+*/
