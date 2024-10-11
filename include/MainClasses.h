@@ -5,25 +5,42 @@
 #include <iostream>
 #include <string>
 
-class MainPlayers {
+class player1 {
 private:
   int health = 100;
   int attack = 10;
-  int playerCount = 0;
   int coins = 0;
 
 public:
-  int setPlayerCount();
+  int accessToAtk();
 
-  int increasePlayerAtkBasedOnCount();
+  int accessToHealth();
 
-  int increasePlayerHealthBasedOnCount();
+  void killPlayer();
+
+  int damage();
+
+  void hpCountDown();
+
+  int increaseCoinCountForPlayer(int waveNum);
+};
+
+class player2 {
+private:
+  int health = 100;
+  int attack = 10;
+  int coins = 0;
+
+public:
+  int accessToAtk();
+
+  int accessToHealth();
 
   int killPlayer();
 
-  int damage(int enemeyHealth, int enemeyCount);
+  int damage();
 
-  int hpCountDown(int enemeyAtk, int enemeyCount);
+  int hpCountDown();
 
   int increaseCoinCountForPlayer(int waveNum);
 };
@@ -35,10 +52,14 @@ private:
 
 public:
   int bruteCount = 0;
-  int findBruteHpBasedOnCount();
-  int findBruteAtkBasedOnCount();
+  void findBruteHpBasedOnCount();
+  void findBruteAtkBasedOnCount();
   int getBruteCount(int waveNum);
   void increaseCoinCountByBKill(int waveNum);
+  void damagePlayerOne();
+  void damagePlayerTwo();
+  void takeDamageOne();
+  void takeDamageTwo();
   // add an ult
 };
 
@@ -49,10 +70,14 @@ private:
 
 public:
   int zombCount = 0;
-  int findZombHpBasedOnCount();
-  int findZombAtkBasedOnCount();
+  void findZombHpBasedOnCount();
+  void findZombAtkBasedOnCount();
   int getZombCount(int waveNum);
   void increaseCoinCountByZKill(int waveNum);
+  void damagePlayerOne();
+  void damagePlayerTwo();
+  void takeDamageOne();
+  void takeDamageTwo();
   // add an ult
 };
 
@@ -63,10 +88,14 @@ private:
 
 public:
   int ghostCount = 0;
-  int findGhostHpBasedOnCount();
-  int findGhostAtkBasedOnCount();
+  void findGhostHpBasedOnCount();
+  void findGhostAtkBasedOnCount();
   int getGhostCount(int waveNum);
   void increaseCoinCountByGKill(int waveNum);
+  void damagePlayerOne();
+  void damagePlayerTwo();
+  void takeDamageOne();
+  void takeDamageTwo();
   // add an ult
 };
 

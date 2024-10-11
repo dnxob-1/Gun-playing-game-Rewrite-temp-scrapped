@@ -47,3 +47,31 @@ char readFromCounter(char countChar) {
   }
   wave(players, countChar);*/
 
+
+int player1::getAtk() { return this->attack; }
+
+int player1::getHealth() { return this->health; }
+
+void player1::killPlayer() {
+  if (health == 0) {
+    playerCount--;
+  }
+}
+
+int player1::damage(int enemeyHealth, int enemeyCount) {
+
+  enemeyHealth -= attack;
+
+  if (enemeyHealth == 0) {
+    enemeyCount--;
+    return enemeyCount;
+  }
+
+  return enemeyHealth;
+}
+
+void player1::hpCountDown(int enemeyAtk, int enemeyCount) {
+  for (int i = 0; i < enemeyCount; i++) {
+    health -= enemeyAtk;
+  }
+}

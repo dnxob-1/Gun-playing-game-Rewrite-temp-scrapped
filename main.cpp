@@ -13,15 +13,11 @@ int main() {
 
   players = givePlayers(players);
 
-  MainPlayers playerMain;
-
-  playerMain.setPlayerCount();
-
-  playerMain.increasePlayerAtkBasedOnCount();
-
-  playerMain.increasePlayerHealthBasedOnCount();
-
-  waveNum = wave_init(waveNum);
+  player1 Player1;
+  player2 Player2;
+  brutus Brute;
+  zombies Zomb;
+  ghosts Ghosts;
 
   return 0;
 }
