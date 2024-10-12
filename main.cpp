@@ -2,6 +2,7 @@
 #include "findLog.h"
 #include "givePlayers.h"
 #include "wave.h"
+#include <cmath>
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -13,11 +14,8 @@ int main() {
 
   players = givePlayers(players);
 
-  player1 Player1;
-  player2 Player2;
-  brutus Brute;
-  zombies Zomb;
-  ghosts Ghosts;
+  waveNum = wave_init(waveNum);
+  wave();
 
   return 0;
 }
