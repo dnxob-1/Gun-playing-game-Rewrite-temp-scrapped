@@ -2,7 +2,6 @@
 #include "findLog.h"
 #include "givePlayers.h"
 #include "wave.h"
-#include <cmath>
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -15,7 +14,7 @@ int main() {
   players = givePlayers(players);
 
   waveNum = wave_init(waveNum);
-  wave();
+  wave(waveNum);
 
   return 0;
 }

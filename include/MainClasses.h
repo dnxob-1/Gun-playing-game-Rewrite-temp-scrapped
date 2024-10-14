@@ -42,6 +42,7 @@ private:
 
 public:
   int bruteCount = 0;
+  void killBrute();
   int accessToAtk();
   int accessToHealth();
   void findBruteHpBasedOnCount();
@@ -62,6 +63,7 @@ private:
 
 public:
   int zombCount = 0;
+  void killZomb();
   int accessToAtk();
   int accessToHealth();
   void findZombHpBasedOnCount();
@@ -82,6 +84,7 @@ private:
 
 public:
   int ghostCount = 0;
+  void killGhosts();
   int accessToAtk();
   int accessToHealth();
   void findGhostHpBasedOnCount();

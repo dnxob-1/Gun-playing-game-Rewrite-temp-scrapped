@@ -86,12 +86,21 @@ void player2::hpCountDown(int enemeyAtk, int enemeyCount) {
 }
 
 // brutus related
+void brutus::killBrute() {
+  while (true) {
+    if (health == 0) {
+      bruteCount--;
+      health = 250;
+    }
+  }
+}
+
 void brutus::findBruteHpBasedOnCount() { health *= bruteCount; }
 void brutus::findBruteAtkBasedOnCount() { attack *= bruteCount; }
 
 int brutus::getBruteCount(int waveNum) {
   if (waveNum == 1) {
-    bruteCount = 10;
+    bruteCount = 2;
     brutus::findBruteHpBasedOnCount();
     brutus::findBruteAtkBasedOnCount();
   }
@@ -122,12 +131,21 @@ void brutus::takeDamageTwo(player2 &Player2) {
 }
 
 // zombies related
+void zombies::killZomb() {
+  while (true) {
+    if (health == 0) {
+      zombCount--;
+      health = 100;
+      break;
+    }
+  }
+}
 void zombies::findZombHpBasedOnCount() { health *= zombCount; }
 void zombies::findZombAtkBasedOnCount() { attack *= zombCount; }
 
 int zombies::getZombCount(int waveNum) {
   if (waveNum == 1) {
-    zombCount = 10;
+    zombCount = 7;
     zombies::findZombHpBasedOnCount();
     zombies::findZombAtkBasedOnCount();
   }
@@ -158,12 +176,21 @@ void zombies::takeDamageTwo(player2 &Player2) {
 }
 
 // ghosts related
+void ghosts::killGhosts() {
+  while (true) {
+    if (health == 0) {
+      ghostCount--;
+      health = 150;
+      break;
+    }
+  }
+}
 void ghosts::findGhostHpBasedOnCount() { health *= ghostCount; }
 void ghosts::findGhostAtkBasedOnCount() { attack *= ghostCount; }
 
 int ghosts::getGhostCount(int waveNum) {
   if (waveNum == 1) {
-    ghostCount = 2;
+    ghostCount = 3;
     ghosts::findGhostHpBasedOnCount();
     ghosts::findGhostAtkBasedOnCount();
   }
