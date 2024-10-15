@@ -30,25 +30,26 @@ void waveRunnerForPlayer2(int waveNum) {
   std::cout << "current ghost count: " << Ghosts.ghostCount << '\n';
 
   for (int i = 0; i < Brutus.bruteCount; i++) {
-    Brutus.killBrute();
     std::cout << "current bruteCount: " << Brutus.bruteCount << '\n';
-    Player2.damage(Brutus.bruteCount, bruteHealth);
+    Player2.damage(bruteHealth, Brutus.bruteCount);
     std::cout << "current brute health: " << bruteHealth << '\n';
     Brutus.damagePlayerTwo(Player2);
+    Brutus.killBrute();
+    std::cout << "new brute health: " << bruteHealth << '\n';
     for (int j = 0; i < Zombies.zombCount; j++) {
-      Zombies.killZomb();
-      Player2.damage(Zombies.zombCount, zombHealth);
+      Player2.damage(zombHealth, Zombies.zombCount);
       Zombies.damagePlayerTwo(Player2);
+      Zombies.killZomb();
     }
-    Zombies.damagePlayerTwo(Player2);
     for (int p = 0; p < Ghosts.ghostCount; p++) {
-      Ghosts.killGhosts();
       Ghosts.damagePlayerTwo(Player2);
-      Player2.damage(Ghosts.ghostCount, ghostHealth);
+      Player2.damage(
+          ghostHealth,
+          Ghosts.ghostCount); // fix this later, switch the parameters.
+      Ghosts.damagePlayerTwo(Player2);
+      Ghosts.killGhosts();
     }
-    Ghosts.damagePlayerTwo(Player2);
   }
-  std::cout << ghostHealth << '\n';
 }
 
 void waveRunnerForPlayer1(int waveNum) {
@@ -72,24 +73,25 @@ void waveRunnerForPlayer1(int waveNum) {
   std::cout << "current ghost count: " << Ghosts.ghostCount << '\n';
 
   for (int i = 0; i < Brutus.bruteCount; i++) {
-    Brutus.killBrute();
     std::cout << "current bruteCount: " << Brutus.bruteCount << '\n';
-    Player1.damage(Brutus.bruteCount, bruteHealth);
+    Player1.damage(bruteHealth, Brutus.bruteCount);
     std::cout << "current brute health: " << bruteHealth << '\n';
     Brutus.damagePlayerOne(Player1);
+    std::cout << "new brute health: " << bruteHealth << '\n';
+    Brutus.killBrute();
     for (int j = 0; i < Zombies.zombCount; j++) {
-      Zombies.killZomb();
       Zombies.damagePlayerOne(Player1);
-      Player1.damage(Zombies.zombCount, zombHealth);
+      Player1.damage(zombHealth, Zombies.zombCount);
+      Zombies.killZomb();
     }
-    Zombies.damagePlayerTwo(Player2);
     for (int p = 0; p < Ghosts.ghostCount; p++) {
-      Ghosts.killGhosts();
-      Player1.damage(Ghosts.ghostCount, ghostHealth);
+      Player1.damage(ghostHealth, Ghosts.ghostCount);
+      std::cout << "current ghost health: " << ghostHealth << '\n';
       Ghosts.damagePlayerOne(Player1);
+      Ghosts.killGhosts();
+      std::cout << "new ghost health: " << ghostHealth << '\n';
     }
   }
-  std::cout << ghostHealth << '\n';
 }
 
 void wave(int waveNum) {

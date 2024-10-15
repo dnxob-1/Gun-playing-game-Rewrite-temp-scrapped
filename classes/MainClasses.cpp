@@ -116,10 +116,12 @@ int brutus::getBruteCount(int waveNum) {
 
 void brutus::damagePlayerOne(player1 &Player1) {
   Player1.accessToHealth() -= attack;
+  std::cout << "health of player1: " << Player1.accessToHealth();
 }
 
 void brutus::damagePlayerTwo(player2 &Player2) {
   Player2.accessToHealth() -= attack;
+  std::cout << "health of player2: " << Player2.accessToHealth() << '\n';
 }
 
 void brutus::takeDamageOne(player1 &Player1) {
