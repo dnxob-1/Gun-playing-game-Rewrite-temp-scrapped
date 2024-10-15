@@ -28,6 +28,7 @@ int ghosts::accessToHealth() { return this->health; }
 int player1::damage(int enemeyCount, int enemeyHealth) {
 
   enemeyHealth -= attack;
+  std::cout << "Health Of enemey: " << enemeyHealth << '\n';
 
   if (enemeyHealth == 0) {
     enemeyCount--;
@@ -70,6 +71,7 @@ int player1::increaseCoinCountForPlayer(int waveNum) {
 int player2::damage(int enemeyHealth, int enemeyCount) {
 
   enemeyHealth -= attack;
+  std::cout << "Health Of enemey: " << enemeyHealth << '\n';
 
   if (enemeyHealth == 0) {
     enemeyCount--;
@@ -87,11 +89,9 @@ void player2::hpCountDown(int enemeyAtk, int enemeyCount) {
 
 // brutus related
 void brutus::killBrute() {
-  while (true) {
-    if (health == 0) {
-      bruteCount--;
-      health = 250;
-    }
+  if (health == 0) {
+    bruteCount--;
+    health = 250;
   }
 }
 
