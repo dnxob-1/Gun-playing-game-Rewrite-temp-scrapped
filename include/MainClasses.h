@@ -14,9 +14,8 @@ private:
 public:
   int &accessToAtk();
   int &accessToHealth();
-  void killPlayer();
-  int damage(int enemeyCount, int enemeyHealth);
-  void hpCountDown(int enemeyAtk, int enemeyCount);
+  int setHpToZero();
+  int damage(int enemeyHealth);
   int increaseCoinCountForPlayer(int waveNum);
 };
 
@@ -29,9 +28,8 @@ private:
 public:
   int &accessToAtk();
   int &accessToHealth();
-  int killPlayer();
-  int damage(int enemeyHealth, int enemeyCount);
-  void hpCountDown(int enemeyAtk, int enemeyCount);
+  int setHpToZero();
+  int damage(int enemeyHealth);
   int increaseCoinCountForPlayer(int waveNum);
 };
 
@@ -58,7 +56,7 @@ public:
 
 class zombies {
 private:
-  int health = 100;
+  int health = 101;
   int attack = 5;
 
 public:

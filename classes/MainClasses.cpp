@@ -3,45 +3,28 @@
 #include <iostream>
 #include <string>
 
-// to do: please add a method that increases coins and there is a shop
-
 int &player1::accessToAtk() { return this->attack; }
-
 int &player1::accessToHealth() { return this->health; }
 
 int &player2::accessToAtk() { return this->attack; }
-
 int &player2::accessToHealth() { return this->health; }
 
-int brutus::accessToAtk() { return this->attack; }
+int player1::setHpToZero() { return this->health = 0; }
+int player2::setHpToZero() { return this->health = 0; }
 
+int brutus::accessToAtk() { return this->attack; }
 int brutus::accessToHealth() { return this->attack; }
 
 int zombies::accessToAtk() { return this->attack; }
-
 int zombies::accessToHealth() { return this->health; }
 
 int ghosts::accessToAtk() { return this->attack; }
-
 int ghosts::accessToHealth() { return this->health; }
 
-int player1::damage(int enemeyCount, int enemeyHealth) {
-
+int player1::damage(int enemeyHealth) {
   enemeyHealth -= attack;
-  std::cout << "Health Of enemey: " << enemeyHealth << '\n';
-
-  if (enemeyHealth == 0) {
-    enemeyCount--;
-    return enemeyCount;
-  }
-
+  std::cout << "this is player specific: " << '\n';
   return enemeyHealth;
-}
-
-void player1::hpCountDown(int enemeyAtk, int enemeyCount) {
-  for (int i = 0; i < enemeyCount; i++) { // replace with gets
-    health -= enemeyAtk;
-  }
 }
 
 int player1::increaseCoinCountForPlayer(int waveNum) {
@@ -68,23 +51,10 @@ int player1::increaseCoinCountForPlayer(int waveNum) {
   return waveNum;
 }
 
-int player2::damage(int enemeyHealth, int enemeyCount) {
-
+int player2::damage(int enemeyHealth) {
   enemeyHealth -= attack;
-  std::cout << "Health Of enemey: " << enemeyHealth << '\n';
-
-  if (enemeyHealth == 0) {
-    enemeyCount--;
-    return enemeyCount;
-  }
-
+  std::cout << "this is player specific: " << '\n';
   return enemeyHealth;
-}
-
-void player2::hpCountDown(int enemeyAtk, int enemeyCount) {
-  for (int i = 0; i < enemeyCount; i++) {
-    health -= enemeyAtk;
-  }
 }
 
 // brutus related
@@ -105,7 +75,7 @@ int brutus::getBruteCount(int waveNum) {
     brutus::findBruteAtkBasedOnCount();
   }
 
-  for (int i = 0; i < waveNum; i++) {
+  for (int i = 1; i < waveNum; i++) {
     bruteCount++;
     brutus::findBruteHpBasedOnCount();
     brutus::findBruteAtkBasedOnCount();
@@ -115,31 +85,36 @@ int brutus::getBruteCount(int waveNum) {
 }
 
 void brutus::damagePlayerOne(player1 &Player1) {
-  Player1.accessToHealth() -= attack;
-  std::cout << "health of player1: " << Player1.accessToHealth();
+  if (Player1.accessToHealth() <= 0) {
+    Player1.setHpToZero();
+  } else {
+    Player1.accessToHealth() -= attack;
+  }
 }
 
 void brutus::damagePlayerTwo(player2 &Player2) {
-  Player2.accessToHealth() -= attack;
-  std::cout << "health of player2: " << Player2.accessToHealth() << '\n';
+  if (Player2.accessToHealth() <= 0) {
+    Player2.setHpToZero();
+  } else {
+    Player2.accessToHealth() -= attack;
+  }
 }
 
 void brutus::takeDamageOne(player1 &Player1) {
   health -= Player1.accessToAtk();
+  std::cout << "brute health: " << '\n';
 }
 
 void brutus::takeDamageTwo(player2 &Player2) {
   health -= Player2.accessToAtk();
+  std::cout << "brute health: " << '\n';
 }
 
 // zombies related
 void zombies::killZomb() {
-  while (true) {
-    if (health == 0) {
-      zombCount--;
-      health = 100;
-      break;
-    }
+  if (health == 0) {
+    zombCount--;
+    health = 100;
   }
 }
 void zombies::findZombHpBasedOnCount() { health *= zombCount; }
@@ -152,7 +127,7 @@ int zombies::getZombCount(int waveNum) {
     zombies::findZombAtkBasedOnCount();
   }
 
-  for (int i = 0; i < waveNum; i++) {
+  for (int i = 1; i < waveNum; i++) {
     zombCount++;
     zombies::findZombHpBasedOnCount();
     zombies::findZombAtkBasedOnCount();
@@ -162,11 +137,19 @@ int zombies::getZombCount(int waveNum) {
 }
 
 void zombies::damagePlayerOne(player1 &Player1) {
-  Player1.accessToHealth() -= attack;
+  if (Player1.accessToHealth() <= 0) {
+    Player1.setHpToZero();
+  } else {
+    Player1.accessToHealth() -= attack;
+  }
 }
 
 void zombies::damagePlayerTwo(player2 &Player2) {
-  Player2.accessToHealth() -= attack;
+  if (Player2.accessToHealth() <= 0) {
+    Player2.setHpToZero();
+  } else {
+    Player2.accessToHealth() -= attack;
+  }
 }
 
 void zombies::takeDamageOne(player1 &Player1) {
@@ -179,12 +162,9 @@ void zombies::takeDamageTwo(player2 &Player2) {
 
 // ghosts related
 void ghosts::killGhosts() {
-  while (true) {
-    if (health == 0) {
-      ghostCount--;
-      health = 150;
-      break;
-    }
+  if (health == 0) {
+    ghostCount--;
+    health = 150;
   }
 }
 void ghosts::findGhostHpBasedOnCount() { health *= ghostCount; }
@@ -197,7 +177,7 @@ int ghosts::getGhostCount(int waveNum) {
     ghosts::findGhostAtkBasedOnCount();
   }
 
-  for (int i = 0; i < waveNum; i++) {
+  for (int i = 1; i < waveNum; i++) {
     ghostCount++;
     ghosts::findGhostHpBasedOnCount();
     ghosts::findGhostAtkBasedOnCount();
@@ -207,11 +187,19 @@ int ghosts::getGhostCount(int waveNum) {
 }
 
 void ghosts::damagePlayerOne(player1 &Player1) {
-  Player1.accessToHealth() -= attack;
+  if (Player1.accessToHealth() <= 0) {
+    Player1.setHpToZero();
+  } else {
+    Player1.accessToHealth() -= attack;
+  }
 }
 
 void ghosts::damagePlayerTwo(player2 &Player2) {
-  Player2.accessToHealth() -= attack;
+  if (Player2.accessToHealth() <= 0) {
+    Player2.setHpToZero();
+  } else {
+    Player2.accessToHealth() -= attack;
+  }
 }
 
 void ghosts::takeDamageOne(player1 &Player1) {
