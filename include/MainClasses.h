@@ -56,7 +56,7 @@ public:
 
 class zombies {
 private:
-  int health = 101;
+  int health = 100;
   int attack = 5;
 
 public:

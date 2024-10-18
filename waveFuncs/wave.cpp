@@ -58,20 +58,27 @@ void waveRunnerForPlayer1(int waveNum) {
   Zombies.getZombCount(waveNum);
   Ghosts.getGhostCount(waveNum);
 
+  std::cout << "brute health before: " << bruteHealth << '\n';
+
   for (int i = 0; i < Brutus.bruteCount; i++) {
-    Player1.damage(bruteHealth);
+    bruteHealth = Player1.damage(bruteHealth);
+    std::cout << "brute health: " << bruteHealth << '\n';
     Brutus.damagePlayerOne(Player1);
     Brutus.killBrute();
   }
 
+  std::cout << "zomb health before: " << zombHealth << '\n';
+
   for (int j = 0; j < Zombies.zombCount; j++) {
-    Player1.damage(zombHealth);
+    zombHealth = Player1.damage(zombHealth);
+    std::cout << "zomb health: " << zombHealth << '\n';
     Zombies.damagePlayerOne(Player1);
     Zombies.killZomb();
   }
 
   for (int p = 0; p < Ghosts.ghostCount; p++) {
-    Player1.damage(ghostHealth);
+    ghostHealth = Player1.damage(ghostHealth);
+    std::cout << "health of ghost: " << ghostHealth << '\n';
     Ghosts.damagePlayerOne(Player1);
     Ghosts.killGhosts();
   }
