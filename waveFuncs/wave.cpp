@@ -60,7 +60,14 @@ void waveRunnerForPlayer1(int waveNum) {
 
   std::cout << "brute health before: " << bruteHealth << '\n';
 
-  for (int i = 0; i < Brutus.bruteCount; i++) {
+  /*for (int i = 0; i < Brutus.bruteCount; i++) {
+    bruteHealth = Player1.damage(bruteHealth);
+    std::cout << "brute health: " << bruteHealth << '\n';
+    Brutus.damagePlayerOne(Player1);
+    Brutus.killBrute();
+  }*/
+
+  while (Brutus.bruteCount != 0 && bruteHealth != 0) {
     bruteHealth = Player1.damage(bruteHealth);
     std::cout << "brute health: " << bruteHealth << '\n';
     Brutus.damagePlayerOne(Player1);

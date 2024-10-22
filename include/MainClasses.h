@@ -40,7 +40,7 @@ private:
 
 public:
   int bruteCount = 0;
-  void killBrute();
+  int killBrute();
   int accessToAtk();
   int accessToHealth();
   void findBruteHpBasedOnCount();

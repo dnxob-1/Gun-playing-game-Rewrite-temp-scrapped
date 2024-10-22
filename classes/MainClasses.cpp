@@ -58,11 +58,16 @@ int player2::damage(int enemeyHealth) {
 }
 
 // brutus related
-void brutus::killBrute() {
+int brutus::killBrute() {
   if (health == 0) {
     bruteCount--;
     health = 250;
+    std::cout << "dead\n";
+    return 0;
+  } else {
+    std::cout << "not dead\n";
   }
+  return 1;
 }
 
 void brutus::findBruteHpBasedOnCount() { health *= bruteCount; }
