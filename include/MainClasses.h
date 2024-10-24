@@ -8,7 +8,7 @@
 class player1 {
 private:
   int health = 100;
-  int attack = 10;
+  int attack = 20;
   int coins = 0;
 
 public:
@@ -35,12 +35,13 @@ public:
 
 class brutus {
 private:
-  int health = 250;
-  int attack = 15;
+  int health = 200;
+  int attack = 5;
 
 public:
   int bruteCount = 0;
   int killBrute();
+  void takeDamage(int healthReturnFromEnemy);
   int accessToAtk();
   int accessToHealth();
   void findBruteHpBasedOnCount();
@@ -56,7 +57,7 @@ public:
 
 class zombies {
 private:
-  int health = 100;
+  int health = 50;
   int attack = 5;
 
 public:
@@ -77,8 +78,8 @@ public:
 
 class ghosts {
 private:
-  int health = 150;
-  int attack = 15;
+  int health = 120;
+  int attack = 10;
 
 public:
   int ghostCount = 0;

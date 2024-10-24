@@ -67,28 +67,46 @@ void waveRunnerForPlayer1(int waveNum) {
     Brutus.killBrute();
   }*/
 
-  while (Brutus.bruteCount != 0 && bruteHealth != 0) {
+  std::cout << "brute before count: " << Brutus.bruteCount << '\n';
+
+  /*while (Brutus.bruteCount > 0) {
     bruteHealth = Player1.damage(bruteHealth);
     std::cout << "brute health: " << bruteHealth << '\n';
+    std::cout << "brute count: " << Brutus.bruteCount << '\n';
     Brutus.damagePlayerOne(Player1);
     Brutus.killBrute();
-  }
+  }*/
 
-  std::cout << "zomb health before: " << zombHealth << '\n';
+  for (int i = 0; i < 10; i++) {
+    bruteHealth = Player1.damage(bruteHealth);
+    Brutus.takeDamage(bruteHealth);
+    std::cout << "brute health: " << bruteHealth << '\n';
+    std::cout << "brute private health: " << Brutus.accessToHealth() << '\n';
 
-  for (int j = 0; j < Zombies.zombCount; j++) {
-    zombHealth = Player1.damage(zombHealth);
-    std::cout << "zomb health: " << zombHealth << '\n';
-    Zombies.damagePlayerOne(Player1);
-    Zombies.killZomb();
+    std::cout << "brute count: " << Brutus.bruteCount << '\n';
+    Brutus.damagePlayerOne(Player1);
+    Brutus.killBrute();
+    std::cout << "brute count: " << Brutus.bruteCount << '\n';
   }
+  std::cout << "brute after count: " << Brutus.bruteCount << '\n';
 
-  for (int p = 0; p < Ghosts.ghostCount; p++) {
-    ghostHealth = Player1.damage(ghostHealth);
-    std::cout << "health of ghost: " << ghostHealth << '\n';
-    Ghosts.damagePlayerOne(Player1);
-    Ghosts.killGhosts();
-  }
+  /*
+    std::cout << "zomb health before: " << zombHealth << '\n';
+
+    for (int j = 0; j < Zombies.zombCount; j++) {
+      zombHealth = Player1.damage(zombHealth);
+      std::cout << "zomb health: " << zombHealth << '\n';
+      Zombies.damagePlayerOne(Player1);
+      Zombies.killZomb();
+    }
+
+    for (int p = 0; p < Ghosts.ghostCount; p++) {
+      ghostHealth = Player1.damage(ghostHealth);
+      std::cout << "health of ghost: " << ghostHealth << '\n';
+      Ghosts.damagePlayerOne(Player1);
+      Ghosts.killGhosts();
+    }
+  */
 }
 
 void wave(int waveNum) {
