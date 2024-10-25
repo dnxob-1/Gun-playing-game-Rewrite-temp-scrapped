@@ -60,35 +60,39 @@ void waveRunnerForPlayer1(int waveNum) {
 
   std::cout << "brute health before: " << bruteHealth << '\n';
 
-  /*for (int i = 0; i < Brutus.bruteCount; i++) {
-    bruteHealth = Player1.damage(bruteHealth);
-    std::cout << "brute health: " << bruteHealth << '\n';
-    Brutus.damagePlayerOne(Player1);
-    Brutus.killBrute();
-  }*/
-
   std::cout << "brute before count: " << Brutus.bruteCount << '\n';
 
-  /*while (Brutus.bruteCount > 0) {
-    bruteHealth = Player1.damage(bruteHealth);
-    std::cout << "brute health: " << bruteHealth << '\n';
-    std::cout << "brute count: " << Brutus.bruteCount << '\n';
-    Brutus.damagePlayerOne(Player1);
-    Brutus.killBrute();
-  }*/
-
-  for (int i = 0; i < 10; i++) {
+  while (Brutus.bruteCount > 0) {
     bruteHealth = Player1.damage(bruteHealth);
     Brutus.takeDamage(bruteHealth);
     std::cout << "brute health: " << bruteHealth << '\n';
     std::cout << "brute private health: " << Brutus.accessToHealth() << '\n';
-
     std::cout << "brute count: " << Brutus.bruteCount << '\n';
     Brutus.damagePlayerOne(Player1);
     Brutus.killBrute();
     std::cout << "brute count: " << Brutus.bruteCount << '\n';
+    if (Brutus.damagePlayerOne(Player1) == 0) {
+      std::cout << "Game over\n";
+      break;
+    }
   }
+
   std::cout << "brute after count: " << Brutus.bruteCount << '\n';
+
+  while (Zombies.zombCount > 0) {
+    zombHealth = Player1.damage(zombHealth);
+    Zombies.takeDamage(zombHealth);
+    std::cout << "zombs health: " << zombHealth << '\n';
+    std::cout << "zombs private health: " << Zombies.accessToHealth() << '\n';
+    std::cout << "zombs count: " << Zombies.zombCount << '\n';
+    Zombies.damagePlayerOne(Player1);
+    Zombies.killZomb();
+    std::cout << "zombs count: " << Zombies.zombCount << '\n';
+    if (Zombies.damagePlayerOne(Player1) == 0) {
+      std::cout << "Game over\n";
+      break;
+    }
+  }
 
   /*
     std::cout << "zomb health before: " << zombHealth << '\n';

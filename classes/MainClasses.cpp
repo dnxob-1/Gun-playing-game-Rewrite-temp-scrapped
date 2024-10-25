@@ -59,16 +59,14 @@ int player2::damage(int enemeyHealth) {
 }
 
 // brutus related
-int brutus::killBrute() {
+void brutus::killBrute() {
   std::cout << "health of brute: " << health << '\n';
   if (health <= 0) {
     bruteCount--;
-    health = 250;
+    health = 200;
     std::cout << "dead\n";
     std::cout << "health after " << health << '\n';
-    return 0;
   }
-  return 1;
 }
 
 void brutus::takeDamage(int healthReturnFromEnemy) {
@@ -94,23 +92,27 @@ int brutus::getBruteCount(int waveNum) {
   return waveNum;
 }
 
-void brutus::damagePlayerOne(player1 &Player1) {
+int brutus::damagePlayerOne(player1 &Player1) {
   if (Player1.accessToHealth() <= 0) {
     Player1.setHpToZero();
     std::cout << "Player health has reached 0 : " << Player1.accessToHealth()
               << '\n';
+    return 0;
   } else {
     Player1.accessToHealth() -= attack;
     std::cout << "Player health has not reached 0 : "
               << Player1.accessToHealth() << '\n';
+    return 1;
   }
 }
 
-void brutus::damagePlayerTwo(player2 &Player2) {
+int brutus::damagePlayerTwo(player2 &Player2) {
   if (Player2.accessToHealth() <= 0) {
     Player2.setHpToZero();
+    return 0;
   } else {
     Player2.accessToHealth() -= attack;
+    return 1;
   }
 }
 
@@ -124,17 +126,25 @@ void brutus::takeDamageTwo(player2 &Player2) {
 
 // zombies related
 void zombies::killZomb() {
-  if (health == 0) {
+  std::cout << "health of zombs: " << health << '\n';
+  if (health <= 0) {
     zombCount--;
-    health = 100;
+    health += 50;
+    std::cout << "dead\n";
+    std::cout << "health after " << health << '\n';
   }
 }
+
+void zombies::takeDamage(int healthReturnFromEnemy) {
+  health = healthReturnFromEnemy;
+}
+
 void zombies::findZombHpBasedOnCount() { health *= zombCount; }
 void zombies::findZombAtkBasedOnCount() { attack *= zombCount; }
 
 int zombies::getZombCount(int waveNum) {
   if (waveNum == 1) {
-    zombCount = 7;
+    zombCount = 4;
     zombies::findZombHpBasedOnCount();
     zombies::findZombAtkBasedOnCount();
   }
@@ -148,19 +158,27 @@ int zombies::getZombCount(int waveNum) {
   return waveNum;
 }
 
-void zombies::damagePlayerOne(player1 &Player1) {
+int zombies::damagePlayerOne(player1 &Player1) {
   if (Player1.accessToHealth() <= 0) {
     Player1.setHpToZero();
+    std::cout << "Player health has reached 0 : " << Player1.accessToHealth()
+              << '\n';
+    return 0;
   } else {
     Player1.accessToHealth() -= attack;
+    std::cout << "Player health has not reached 0 : "
+              << Player1.accessToHealth() << '\n';
+    return 1;
   }
 }
 
-void zombies::damagePlayerTwo(player2 &Player2) {
+int zombies::damagePlayerTwo(player2 &Player2) {
   if (Player2.accessToHealth() <= 0) {
     Player2.setHpToZero();
+    return 0;
   } else {
     Player2.accessToHealth() -= attack;
+    return 1;
   }
 }
 
@@ -174,17 +192,22 @@ void zombies::takeDamageTwo(player2 &Player2) {
 
 // ghosts related
 void ghosts::killGhosts() {
-  if (health == 0) {
+  if (health <= 0) {
     ghostCount--;
-    health = 150;
+    health = 120;
   }
 }
+
+void ghosts::takeDamage(int healthReturnFromEnemy) {
+  health = healthReturnFromEnemy;
+}
+
 void ghosts::findGhostHpBasedOnCount() { health *= ghostCount; }
 void ghosts::findGhostAtkBasedOnCount() { attack *= ghostCount; }
 
 int ghosts::getGhostCount(int waveNum) {
   if (waveNum == 1) {
-    ghostCount = 3;
+    ghostCount = 2;
     ghosts::findGhostHpBasedOnCount();
     ghosts::findGhostAtkBasedOnCount();
   }
@@ -198,19 +221,23 @@ int ghosts::getGhostCount(int waveNum) {
   return waveNum;
 }
 
-void ghosts::damagePlayerOne(player1 &Player1) {
+int ghosts::damagePlayerOne(player1 &Player1) {
   if (Player1.accessToHealth() <= 0) {
     Player1.setHpToZero();
+    return 0;
   } else {
     Player1.accessToHealth() -= attack;
+    return 1;
   }
 }
 
-void ghosts::damagePlayerTwo(player2 &Player2) {
+int ghosts::damagePlayerTwo(player2 &Player2) {
   if (Player2.accessToHealth() <= 0) {
     Player2.setHpToZero();
+    return 0;
   } else {
     Player2.accessToHealth() -= attack;
+    return 1;
   }
 }
 
