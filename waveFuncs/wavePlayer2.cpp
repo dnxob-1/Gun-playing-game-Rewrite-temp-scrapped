@@ -1,4 +1,8 @@
-#include <cstdlib>
+
+
+// this was a part of the original code
+
+/*#include <cstdlib>
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -89,4 +93,4 @@ string wavePlayer2(string line1, char count) {
   logWriter1(line1);
 
   return line1;
-}
+}*/

@@ -1,8 +1,10 @@
+# commented things were a part of the original project. changes have been made since then. 
+
 CC = g++
 CFLAGS = -I include -Wall -Wextra -O2
 
 $(shell mkdir -p build)
-$(shell mkdir -p data)
+#$(shell mkdir -p data)
 
 TARGET = build/run
 dataDir = data

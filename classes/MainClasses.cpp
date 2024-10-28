@@ -21,11 +21,10 @@ int zombies::accessToHealth() { return this->health; }
 int ghosts::accessToAtk() { return this->attack; }
 int ghosts::accessToHealth() { return this->health; }
 
-int player1::damage(int enemeyHealth) {
+int player1::damage(int enemeyHealth, int enemeyCount) {
+  enemeyHealth *= enemeyCount;
   enemeyHealth -= attack;
-  std::cout << "Health of attacker: " << enemeyHealth << '\n';
-  return enemeyHealth; // probably add a thing to multiple the attack/health
-                       // based on count from here.
+  return enemeyHealth;
 }
 
 int player1::increaseCoinCountForPlayer(int waveNum) {
@@ -125,14 +124,15 @@ void brutus::takeDamageTwo(player2 &Player2) {
 }
 
 // zombies related
-void zombies::killZomb() {
-  std::cout << "health of zombs: " << health << '\n';
+int zombies::killZomb() {
   if (health <= 0) {
     zombCount--;
-    health += 50;
+    health = 50;
+    return health;
     std::cout << "dead\n";
     std::cout << "health after " << health << '\n';
   }
+  std::cout << "health of zombs: " << health << '\n';
 }
 
 void zombies::takeDamage(int healthReturnFromEnemy) {
@@ -165,6 +165,8 @@ int zombies::damagePlayerOne(player1 &Player1) {
               << '\n';
     return 0;
   } else {
+    std::cout << "Player health has not reached 0 : "
+              << Player1.accessToHealth() << '\n';
     Player1.accessToHealth() -= attack;
     std::cout << "Player health has not reached 0 : "
               << Player1.accessToHealth() << '\n';

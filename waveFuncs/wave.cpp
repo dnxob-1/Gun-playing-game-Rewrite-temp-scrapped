@@ -54,6 +54,10 @@ void waveRunnerForPlayer1(int waveNum) {
   int zombHealth = Zombies.accessToHealth();
   int bruteHealth = Brutus.accessToHealth();
 
+  int ghostCount = Ghosts.ghostCount;
+  int zombCount = Zombies.zombCount;
+  int bruteCount = Brutus.bruteCount;
+
   Brutus.getBruteCount(waveNum);
   Zombies.getZombCount(waveNum);
   Ghosts.getGhostCount(waveNum);
@@ -63,7 +67,11 @@ void waveRunnerForPlayer1(int waveNum) {
   std::cout << "brute before count: " << Brutus.bruteCount << '\n';
 
   while (Brutus.bruteCount > 0) {
-    bruteHealth = Player1.damage(bruteHealth);
+    if (Brutus.damagePlayerOne(Player1) == 0) {
+      std::cout << "Game over\n";
+      break;
+    }
+    bruteHealth = Player1.damage(bruteHealth, bruteCount);
     Brutus.takeDamage(bruteHealth);
     std::cout << "brute health: " << bruteHealth << '\n';
     std::cout << "brute private health: " << Brutus.accessToHealth() << '\n';
@@ -71,29 +79,25 @@ void waveRunnerForPlayer1(int waveNum) {
     Brutus.damagePlayerOne(Player1);
     Brutus.killBrute();
     std::cout << "brute count: " << Brutus.bruteCount << '\n';
-    if (Brutus.damagePlayerOne(Player1) == 0) {
-      std::cout << "Game over\n";
-      break;
-    }
   }
 
   std::cout << "brute after count: " << Brutus.bruteCount << '\n';
 
   while (Zombies.zombCount > 0) {
-    zombHealth = Player1.damage(zombHealth);
-    Zombies.takeDamage(zombHealth);
-    std::cout << "zombs health: " << zombHealth << '\n';
-    std::cout << "zombs private health: " << Zombies.accessToHealth() << '\n';
-    std::cout << "zombs count: " << Zombies.zombCount << '\n';
-    Zombies.damagePlayerOne(Player1);
-    Zombies.killZomb();
-    std::cout << "zombs count: " << Zombies.zombCount << '\n';
     if (Zombies.damagePlayerOne(Player1) == 0) {
       std::cout << "Game over\n";
       break;
     }
+    zombHealth = Player1.damage(zombHealth, zombCount);
+    Zombies.takeDamage(zombHealth);
+    zombHealth = Zombies.killZomb();
+    std::cout << "zombs count: " << Zombies.zombCount << '\n';
+    std::cout << "zombs health: " << zombHealth << '\n';
+    std::cout << "zombs private health: " << Zombies.accessToHealth() << '\n';
+    Zombies.damagePlayerOne(Player1);
   }
 
+  std::cout << "zombs after count: " << Zombies.zombCount << '\n';
   /*
     std::cout << "zomb health before: " << zombHealth << '\n';
 

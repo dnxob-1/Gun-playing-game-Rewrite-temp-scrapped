@@ -7,7 +7,8 @@
 #include <string>
 using namespace std;
 
-int writePlayerToFile(int players) {
+// this was a part of the original code
+/*int writePlayerToFile(int players) {
   ofstream numPlayers("data/numPlayers.txt");
 
   numPlayers << players;
@@ -15,7 +16,7 @@ int writePlayerToFile(int players) {
   numPlayers.close();
 
   return players;
-}
+}*/
 
 int givePlayers(int players) {
 

@@ -1,4 +1,8 @@
-#include "wave.h"
+
+
+// this was a part of the original code
+
+/*#include "wave.h"
 #include "wavePlayer1.h"
 #include "wavePlayer2.h"
 #include <cstdlib>
@@ -89,4 +93,4 @@ int sendToLogging(char count) {
     }
   }
   return 1;
-}
+}*/

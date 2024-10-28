@@ -8,14 +8,14 @@
 class player1 {
 private:
   int health = 150;
-  int attack = 25;
+  int attack = 15;
   int coins = 0;
 
 public:
   int &accessToAtk();
   int &accessToHealth();
   int setHpToZero();
-  int damage(int enemeyHealth);
+  int damage(int enemeyHealth, int enemeyCount);
   int increaseCoinCountForPlayer(int waveNum);
 };
 
@@ -35,7 +35,7 @@ public:
 
 class brutus {
 private:
-  int health = 200;
+  int health = 150;
   int attack = 5;
 
 public:
@@ -57,12 +57,12 @@ public:
 
 class zombies {
 private:
-  int health = 50;
+  int health = 30;
   int attack = 5;
 
 public:
   int zombCount = 0;
-  void killZomb();
+  int killZomb();
   void takeDamage(int healthReturnFromEnemy);
   int accessToAtk();
   int accessToHealth();
@@ -79,7 +79,7 @@ public:
 
 class ghosts {
 private:
-  int health = 120;
+  int health = 100;
   int attack = 10;
 
 public:
